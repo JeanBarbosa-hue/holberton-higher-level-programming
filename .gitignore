@@ -69,3 +69,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+
+# Main files
+*main.py
+*main.c
