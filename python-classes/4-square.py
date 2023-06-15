@@ -4,6 +4,9 @@
 
 
 class Square:
+    """Class containing a constructor, property, property setter, instantiation and square area.
+    """
+
     def __init__(self, size=0):
         """This is a constructor method."""
         self.size = size
