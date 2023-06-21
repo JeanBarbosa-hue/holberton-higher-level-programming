@@ -4,8 +4,9 @@
 
 
 class MyList(list):
-    """Print list in ascended order."""
+    """Class to print list in ascended order."""
 
     def print_sorted(self):
+        """Print list in ascended order."""
         ascend_list = sorted(self)
         print(ascend_list)
