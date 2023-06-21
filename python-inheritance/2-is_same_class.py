@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""Funcion that returns True if object is exactly instance of specified class."""
+"""Function returns True if object is
+    exactly instance of specified class."""
 
 
 def is_same_class(obj, a_class):
