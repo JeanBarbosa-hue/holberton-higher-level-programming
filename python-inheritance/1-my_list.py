@@ -9,5 +9,5 @@ class MyList(list):
     def print_sorted(self):
         """Print list in ascended order."""
         if isinstance(self, list):
-            ascend = sorted(list)
+            ascend = sorted(self)
             print(ascend)
