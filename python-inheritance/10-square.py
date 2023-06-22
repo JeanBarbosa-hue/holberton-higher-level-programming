@@ -20,7 +20,7 @@ class BaseGeometry:
                 raise ValueError(f"{name} must be greater than 0")
 
 
-"""Class called rectangle that inherits from basegeometry."""
+"""Class called rectangle that inherits basegeometry."""
 
 
 class Rectangle(BaseGeometry):
