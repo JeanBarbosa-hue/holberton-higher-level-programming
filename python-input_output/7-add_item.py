@@ -3,6 +3,7 @@
 """script that add all arguments to python list
 and save them to a file."""
 import sys
+import json
 
 
 save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
