@@ -38,6 +38,7 @@ class Rectangle(Base):
             raise TypeError("height must be a integer")
         if value <= 0:
             raise ValueError("height must be > 0")
+        self.__height = value
 
     def x(self):
         """x getter"""
@@ -49,6 +50,7 @@ class Rectangle(Base):
             raise TypeError("x must be a int")
         if value <= 0:
             raise ValueError("x must be > 0")
+        self.__x = value
 
     def y(self):
         """y getter"""
@@ -60,3 +62,4 @@ class Rectangle(Base):
             raise TypeError("y must be a int")
         if value <= 0:
             raise ValueError("y must be > 0")
+        self.__y = value
