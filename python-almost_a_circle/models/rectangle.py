@@ -139,3 +139,16 @@ class Rectangle(Base):
         rectangle_str = "[Rectangle] (" + id_str + ") " + x_str + \
             "/" + y_str + " - " + width_str + "/" + height_str
         return rectangle_str
+
+    def update(self, *args):
+        """update method."""
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.__width = args[1]
+        if len(args) >= 3:
+            self.__height = args[2]
+        if len(args) >= 4:
+            self.__x = args[3]
+        if len(args) >= 5:
+            self.__y = args[4]
