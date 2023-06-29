@@ -130,3 +130,12 @@ class Rectangle(Base):
 
     def __str__(self):
         """string method for rectangle."""
+        id_str = str(self.id)
+        width_str = str(self.__width)
+        height_str = str(self.__height)
+        x_str = str(self.__x)
+        y_str = str(self.__y)
+
+        rectangle_str = "[Rectangle] (" + id_str + ") " + x_str + \
+            "/" + y_str + " - " + width_str + "/" + height_str
+        return rectangle_str
