@@ -39,3 +39,15 @@ class Square(Rectangle):
         square_str = "[Square] (" + str(self.id) + ") " + str(self.x) + \
             "/" + str(self.y) + " - " + str(self.width)
         return square_str
+
+    def update(self, *args, **kwargs):
+        """update method"""
+        attributes = ["id", "size", "x", "y"]
+        if args:
+            for i, value in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
