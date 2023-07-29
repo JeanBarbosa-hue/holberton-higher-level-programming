@@ -1,17 +1,28 @@
 #!/usr/bin/python3
 
+"""Script that is safe from MySQL injections"""
 import MySQLdb
-import sys
+from sys import argv
 
-"""script safe from SQL injections"""
 if __name__ == '__main__':
-    db_connection = MySQLdb.connect(
-        host='localhost', port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    cur = db_connection.cursor()
-    cur.execute("""SELECT * FROM states
-            WHERE name LIKE BINARY %s
-            ORDER BY id ASC""", (sys.argv[4],))
-    """fetches all the rows from the query"""
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    user = argv[1]
+    passwd = argv[2]
+    db = argv[3]
+    state_name = argv[4]
+
+    db = mysql.connector.connect(
+        host='localhost',
+        port=3306,
+        user=user,
+        password=passwd,
+        database=db
+    )
+
+    cur = db.cursor()
+    protected = (state_name,)
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s", protected)
+    states = cur.fetchall()
+    for state in states:
+        print(state)
+    cur.close()
+    db.close()
