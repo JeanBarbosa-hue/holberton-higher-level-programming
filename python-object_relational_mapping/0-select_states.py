@@ -4,47 +4,37 @@
 import MySQLdb
 import sys
 
-"""Module with function to list all states from db"""
-
 
 def list_states(mysql_username, mysql_password, database_name):
-    """Connect to the MySQL server"""
-    try:
-        connection = MySQLdb.connect(
-            host='localhost', port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
-        cursor = connection.cursor()
-    except MySQLdb.Error as e:
-        print(f"Error connecting to the database: {e}")
-        sys.exit(1)
+    """Lists all states from the database hbtn_0e_0_usa"""
 
-    """Execute the query to list all states sorted by states.id in ascending order"""
-    try:
-        query = "SELECT * FROM states ORDER BY id ASC"
-        cursor.execute(query)
-        results = cursor.fetchall()
-    except MySQLdb.Error as e:
-        print(f"Error executing the query: {e}")
-        cursor.close()
-        connection.close()
-        sys.exit(1)
+    """Connects to MySQL database"""
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=mysql_username, passwd=mysql_password, db=database_name)
 
-    """Display the results"""
-    for row in results:
-        state_id, state_name = row
-        print(f"{state_id}: {state_name}")
+    """Creates cursor to execute SQL queries"""
+    cur = db.cursor()
 
-    """Close the cursor and connection"""
-    cursor.close()
-    connection.close()
+    """Executes SQL query to select all states"""
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+
+    """Fetches all the rows from the query"""
+    rows = cur.fetchall()
+
+    """Prints each row of the query"""
+    for row in rows:
+        print(row)
+
+    """Closes cursor"""
+    cur.close()
+
+    """Closes connection to database"""
+    db.close()
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python script_name.py mysql_username mysql_password database_name")
-        sys.exit(1)
-
+    """Take in arguments and passes to list_states"""
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
-
     list_states(mysql_username, mysql_password, database_name)
