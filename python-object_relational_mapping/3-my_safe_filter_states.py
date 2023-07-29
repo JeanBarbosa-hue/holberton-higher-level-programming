@@ -10,13 +10,8 @@ if __name__ == '__main__':
     db = argv[3]
     state_name = argv[4]
 
-    db = mysql.connector.connect(
-        host='localhost',
-        port=3306,
-        user=user,
-        password=passwd,
-        database=db
-    )
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=user, password=passwd, db=db)
 
     cur = db.cursor()
     protected = (state_name,)
