@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
+"""Imports needed for functionality"""
 import MySQLdb
 import sys
 
+"""Module with function to list all states from db"""
+
 
 def list_states(mysql_username, mysql_password, database_name):
-    # Connect to the MySQL server running on localhost at port 3306
+    # Connect to the MySQL server
     try:
         connection = MySQLdb.connect(
             host='localhost', port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
