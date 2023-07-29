@@ -2,7 +2,7 @@
 
 """Lists all states with a name starting with N from the database hbtn_0e_0_usa"""
 
-if main__ == "__main__":
+if __name__ == "__main__":
     import MySQLdb
     import sys
 
